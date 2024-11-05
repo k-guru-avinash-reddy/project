@@ -1,0 +1,5 @@
+<div class="side-bar">
+    <button *ngFor="let button of buttons" [routerLink]="button.route"
+    routerLinkActive="active-tab"
+    [routerLinkActiveOptions]="{ exact: true }">{{ button.title }}</button>
+</div>

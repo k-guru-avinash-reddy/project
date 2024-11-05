@@ -1,0 +1,77 @@
+<div class="login-container">
+    <div *ngIf="isRegistering; else loginForm">
+      <form (ngSubmit)="register()" class="register-form">
+        <i class="fas fa-user"></i>
+        <h2>Register</h2>
+        
+        <input type="text" placeholder="First Name" [(ngModel)]="registerData.firstName" name="firstName" required />
+        <input type="text" placeholder="Last Name" [(ngModel)]="registerData.lastName" name="lastName" required />
+        <input type="text" placeholder="Username" [(ngModel)]="registerData.username" name="username" required />
+        <div class="password-container">
+          <input [type]="showRegisterPassword ? 'text' : 'password'"  placeholder="Password" [(ngModel)]="registerData.password" name="password" required />
+          <i class="fas" [ngClass]="showRegisterPassword ? 'far fa-eye-slash' : 'far fa-eye'" (click)="togglePasswordVisibility('register')"></i>
+        </div>
+
+        <div class="message" *ngIf="registerMessage" [class]="getMessageClass()">
+          {{ registerMessage.replace('error:', '').replace('success:', '') }}
+        </div>
+        <button type="button" (click)="registrationSuccess ? goToLogin() : register()">
+          {{ registrationSuccess ? 'Back to Login' : 'Register' }}
+        </button>
+        <button type="button" class="secondary-button" (click)="toggleRegister()">Already have an account? Log in</button>
+      </form>
+    </div>
+    
+    <!-- Login Form -->
+    <ng-template #loginForm>
+      <form *ngIf="!isForgotPassword; else forgotPasswordForm" (ngSubmit)="login()" class="login-form">
+        <i class="fas fa-user"></i>
+        <h2>Login</h2>
+        <input type="text" placeholder="Username" [(ngModel)]="loginData.username" name="username" required />
+        <div class="password-container">
+          <input [type]="showPassword ? 'text' : 'password'"  placeholder="Password" [(ngModel)]="loginData.password" name="password" required />
+          <i class="fas" [ngClass]="showPassword ? 'far fa-eye-slash' : 'far fa-eye'" (click)="togglePasswordVisibility('login')"></i>
+        </div>
+        <button type="button" class="secondary-button text-end" (click)="toggleForgotPassword()">Forgot Password?</button>
+        <div class="message" *ngIf="loginMessage" [class]="getMessageClass()">
+          {{ loginMessage.replace('error:', '').replace('success:', '') }}
+        </div>
+        <button type="submit" class="login-button">Login</button>
+        <button type="button" class="secondary-button" (click)="toggleRegister()">New user? Register</button>
+      </form>
+    </ng-template>
+  
+     <!-- Forgot Password Form -->
+    <ng-template #forgotPasswordForm>
+        <div *ngIf="!isResetPasswordSuccessful; else resetPasswordForm">
+        <form (ngSubmit)="forgotPassword()" class="forgot-password-form">
+            <i class="fas fa-user-edit"></i>
+            <h2>Forgot Password</h2>
+            <input type="text" placeholder="Username" [(ngModel)]="forgotPasswordData.username" name="username" required />
+            <div class="password-container">
+              <input [type]="showNewPassword ? 'text' : 'password'"  placeholder="New Password" [(ngModel)]="forgotPasswordData.newPassword" name="newpassword" required />
+              <i class="fas" [ngClass]="showNewPassword ? 'far fa-eye-slash' : 'far fa-eye'" (click)="togglePasswordVisibility('new')"></i>
+            </div>
+            <div class="password-container">
+              <input [type]="showConfirmPassword ? 'text' : 'password'"  placeholder="Confirm Password" [(ngModel)]="forgotPasswordData.confirmPassword" name="confirmpassword" required />
+              <i class="fas" [ngClass]="showConfirmPassword ? 'far fa-eye-slash' : 'far fa-eye'" (click)="togglePasswordVisibility('confirm')"></i>
+            </div>
+            <div class="message" *ngIf="forgotPasswordMessage" [class]="getMessageClass()">
+              {{ forgotPasswordMessage.replace('error:', '').replace('success:', '') }}
+            </div>
+            <button type="submit">Reset Password</button>
+        </form>
+        </div>
+    </ng-template>
+
+    <!-- Reset Password Success Message -->
+    <ng-template #resetPasswordForm>
+        <form class="reset-password-form">
+          <h2>Reset Password</h2>
+          <i class="far fa-check-circle success"></i>
+          <div class="message success">{{ resetPasswordMessage }}</div>
+          <button type="button" (click)="toggleresetPassword()">Back to Login</button>
+        </form>
+    </ng-template>
+</div>
+  

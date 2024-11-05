@@ -1,0 +1,168 @@
+<div class="main-content-block">
+    <h3 class="text-center">CONSIGNMENT NOTE</h3>
+    <form [formGroup]="lrForm" class="form">
+        <div class="grid grid-cols-12 title-block">
+            <div class="lg:col-span-3 left-block">
+                <img src="../../../assets/images/lorry-image.jpg" alt="">
+            </div>
+            <div class="lg:col-span-6 middle-block text-center">
+                <h1>B.K. TRANSPORT</h1>
+                <h2>TRANSPORT CONTRACTOR</h2>
+                <span>Opp. Bharath Petrol Bunk, Vinayak Nagar, Hospet Road, BALLARI - 583104</span>
+            </div>
+            <div class="lg:col-span-3 right-block">
+                <div>AKPCL: 87900  95656</div>
+                <div>BLR: 97390 99147</div>
+                <div>92435 99147</div><br>
+                <div>
+                    Truck No.
+                    <input type="text" formControlName="truckNo">
+                </div>
+            </div>
+        </div>
+        <div class="grid grid-cols-12" style="margin-top: 20px;">
+            <div class="lg:col-span-6 grid grid-cols-12 inputfields">
+                <label for="lr-no" class="lg:col-span-1">No.</label>
+                <input type="number" min="1" class="lg:col-span-3" formControlName="lrNo">
+            </div>
+            <div class="lg:col-span-6 grid grid-cols-12 date-field"> 
+                <label for="calendar" class="lg:col-span-1">Date:  </label>
+                <p-calendar class="lg:col-span-4" appendTo="body" formControlName="dateValue" dateFormat="dd-mm-yy" [showIcon]="true"></p-calendar>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-12">
+            <div class="lg:col-span-6 grid grid-cols-12 inputfields">
+                <label for="consigners" class="lg:col-span-3">Consignor's</label>
+                <input type="text" class="lg:col-span-9" formControlName="consigner">
+            </div>
+            <div class="lg:col-span-6 grid grid-cols-12 inputfields">
+                <label for="consigners" class="lg:col-span-3 text-center">Consignee</label>
+                <input type="text" class="lg:col-span-9" formControlName="consignee">
+            </div>
+        </div>
+        <div class="grid grid-cols-12">
+            <label for="consigners" class="lg:col-span-1">Address</label>
+            <textarea name="address" id="address" rows="4" class="lg:col-span-11" formControlName="address"></textarea>
+        </div>
+        <div class="grid grid-cols-12">
+            <div class="lg:col-span-6 grid grid-cols-12 inputfields">
+                <label for="from" class="lg:col-span-2">From</label>
+                <input type="text" class="lg:col-span-4" formControlName="from">
+                <label for="from" class="lg:col-span-1 text-center">To</label>
+                <input type="text" class="lg:col-span-4" formControlName="to">
+            </div>
+            <div class="lg:col-span-6 grid grid-cols-12 inputfields">
+                <label for="driver-name" class="lg:col-span-3">Driver Name</label>
+                <input type="text" class="lg:col-span-9" formControlName="driverName">
+            </div>
+        </div>
+        <div class="grid grid-cols-12 inputfields">
+            <label for="tranporters-name" class="lg:col-span-2">Transporters Name</label>
+            <input type="text" class="lg:col-span-10" formControlName="transporterName">
+        </div>
+        <div class="grid grid-cols-12">
+            <div class="lg:col-span-6 grid grid-cols-12 inputfields">
+                <label for="owners-name" class="lg:col-span-3">Owners Name</label>
+                <input type="text" class="lg:col-span-8" formControlName="ownerName">
+            </div>
+            <div class="lg:col-span-6 grid grid-cols-12 inputfields">
+                <label for="cell-number" class="lg:col-span-3">D.L.No / Cell No.</label>
+                <input type="text" class="lg:col-span-9" formControlName="cellNo">
+            </div>
+        </div>
+
+        <table class="table-auto w-full border-collapse border border-gray-300 inputfields">
+            <thead>
+                <tr>
+                    <th class="border border-gray-300 p-2">No. of Articles</th>
+                    <th class="border border-gray-300 p-2">Description (Said to Contain)</th>
+                    <th class="border border-gray-300 p-2">Weighment Particulars</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <!-- No. of Articles column -->
+                    <td class="border border-gray-300 p-2">
+                        <input type="text" class="w-full" formControlName="noOfArticles">
+                    </td>
+
+                    <!-- Description (Said to Contain) column with three rows -->
+                    <td class="border border-gray-300 p-2" rowspan="3">
+                        <div class="flex flex-col gap-2">
+                            <div class="flex items-center justify-between mb-2">
+                                <label class="mr-2">E-Way Bill No:</label>
+                                <input type="text" formControlName="billNo">
+                            </div>
+                            <div class="flex items-center justify-between mb-2">
+                                <label class="mr-2">Rate</label>
+                                <input type="text" formControlName="rate">
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <label class="mr-2">Advance Rs.</label>
+                                <input type="text" formControlName="advance">
+                            </div>
+                        </div>
+                    </td>
+
+                    <!-- Weighment Particulars column with three rows -->
+                    <td class="border border-gray-300 p-2" rowspan="3">
+                        <div class="flex flex-col gap-2">
+                            <div class="flex items-center justify-between mb-2">
+                                <label class="mr-2">Gross Weight</label>
+                                <input type="text" formControlName="grossWeight">
+                            </div>
+                            <div class="flex items-center justify-between mb-2">
+                                <label class="mr-2">Tare Weight</label>
+                                <input type="text" formControlName="tareWeight">
+                            </div>
+                            <div class="flex items-center justify-between">
+                                <label class="mr-2">Net Weight</label>
+                                <input type="text" formControlName="netWeight">
+                            </div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="grid grid-cols-12 inputfields">
+            <div class="lg:col-span-12 text-center">
+                <p><strong class="underline">GST is Payable by Consignee</strong></p>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-12 inputfields">
+            <label for="amount-in-words" class="lg:col-span-2">Amount in words</label>
+            <input type="text" formControlName="amountInWords" class="lg:col-span-10">
+        </div>
+
+        <div class="grid grid-cols-12">
+            <div class="lg:col-span-4 grid grid-cols-12 inputfields">
+                <label for="signature-consignor" class="lg:col-span-12">I/We do hereby certify that I/We subject myself/ourselves the above 
+                    Particulars of goods consigned by me/us have been correctly entered
+                </label>
+            </div>
+            <div class="lg:col-span-8 grid grid-cols-12 inputfields">
+                <label for="signature-booking" class="lg:col-span-3 text-center">Declared Value</label>
+                <input type="text" formControlName="declaredValue" class="lg:col-span-9 mb-2">
+                <label for="signature-booking" class="lg:col-span-3 text-center">Delivery Instruction</label>
+                <input type="text" formControlName="deliveryInstruction" class="lg:col-span-9">
+            </div>
+        </div>
+
+        
+        <div class="grid grid-cols-12 signatures-row" style="margin-top: 20px">
+            <div class="lg:col-span-6 grid grid-cols-12 inputfields">
+                <label for="signature-consignor" class="lg:col-span-12">Signature of consignor or his Agent / Representative</label>
+            </div>
+            <div class="lg:col-span-6 grid grid-cols-12 inputfields text-end">
+                <label for="signature-booking" class="lg:col-span-12">Signature of Booking Incharge</label>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-12 inputfields text-center">
+            <button (click)="onSubmit()">Save</button>
+        </div>
+    </form>
+</div>

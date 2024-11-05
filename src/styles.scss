@@ -1,0 +1,292 @@
+/* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.main-block, .main-container {
+    position: relative;
+    box-sizing: border-box;
+    background-color: #E1E2F6;
+    padding: 0px;
+    height: 100vh;
+    overflow: hidden;
+}   
+
+.main-container {
+    padding: 40px;
+    .main-container-top {
+        text-align: end;
+        margin-bottom: 20px;
+        app-nav-bar {
+            display: flex;
+            align-items: center;
+            justify-content: end;
+            .nav-bar {
+                width: fit-content;
+                display: flex;
+                i {
+                    font-size: 34px;
+                    color: #b65b0b;
+                    cursor: pointer;
+                    margin-right: 20px;
+                }
+            }
+        }
+    }
+    .main-container-left {
+        .side-bar {
+            position: relative;
+            button {
+                width: 82%;
+                text-align: start;
+                height: 40px;
+                background-color: transparent;
+                color: #FFFFFF;
+                border: none;
+                border-radius: 10px;
+                margin-bottom: 20px;
+                padding: 10px 15px;
+                font-weight: 700;
+                font-size: 14px;
+                font-family: sans-serif;
+                border: 1px solid #0009B9;
+                color: #0009B9;
+            }
+            button.active-tab {
+                background-color: #0009B9;
+                color: #ffffff;
+            }
+        }
+    }
+    .main-container-right {
+        background-color: #ffffff;
+        border-radius: 10px;
+        height: calc(100vh - 130px);
+        overflow: auto;
+    }
+}
+
+button {
+    height: 35px;
+    background-color: #B65B0B;
+    border: none;
+    border-radius: 10px !important;
+    color: #FFFFFF;
+    font-size: 14px !important;
+    font-weight: 600;
+    font-family: sans-serif;
+    padding: 8px 20px;
+}
+
+h1,h2,h3 {
+   font-weight: 400; 
+}
+h1,h2 {
+    font-weight: 500;
+}
+
+img {
+    height: 172px;
+    width: 200px;
+    object-fit: cover;
+}
+
+input, .p-inputtext { 
+    border: 1px solid #484848;
+    border-radius: 10px;
+    height: 35px;
+    padding: 10px 15px;
+    &:focus-visible {
+        outline: none;
+    }
+    &:hover {
+        border-color: #484848 !important;
+    }
+    &:focus {
+        box-shadow: none !important;
+        border-color: #484848 !important;
+    }
+}
+
+textarea {
+    border: 1px solid #484848;
+    border-radius: 10px;
+    padding: 10px 15px;
+    resize: none;
+    margin-bottom: 20px;
+    &:focus-visible {
+        outline: none;
+    }
+}
+
+p-calendar {
+    .p-calendar {
+        .p-inputtext {
+            border: 1px solid #484848;
+            border-radius: 10px;
+            height: 35px;
+            padding: 10px 15px;
+        }
+        button {
+            height: 35px;
+            position: absolute;
+            right: 0px;
+            color: #000000;
+            background: #ffffff;
+            border-radius: 10px;
+            border-top-left-radius: unset !important;
+            border-bottom-left-radius: unset !important;
+            border: 1px solid #484848;
+            border-left: none;
+            &:hover {
+                background-color: #dfdfdf !important;
+                color: #000000 !important;
+                border-color: #484848 !important;
+            }
+            &:focus {
+                box-shadow: none;
+            }
+        }
+    }
+}
+
+.date-field {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    margin-bottom: 20px;
+    label {
+        margin-right: 10px;
+    }
+}
+
+.inputfields {
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.error {
+    color: #ff0031;
+}
+
+.success {
+   color: #43ab02;
+}
+
+//------------ Login Form CSS Starts ------------ //
+
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+    .login-form, .register-form, .forgot-password-form, .reset-password-form {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        height: auto;
+        width: 350px;
+        padding: 40px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        position: relative;
+        i {
+            font-size: 60px;
+        }
+        h2 {
+            font-size: 30px;
+            font-family: serif;
+        }
+        .password-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+            input {
+                width: 100%;
+            }
+            i {
+                position: absolute;
+                right: 15px;
+                font-size: 15px;
+                cursor: pointer;
+            }
+        }
+        .message {
+            height: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            font-style: italic;
+        }          
+        .secondary-button {
+            background-color: transparent;
+            color: #000000;
+            font-weight: 500;
+            padding: 0;
+            height: auto;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+//------------ Login Form CSS Ends ------------ //
+
+
+//------------ Dashboard CSS Starts ------------ //
+
+.main-content-block {
+    height: 100%;
+    .image {
+        img {
+            height: 100%;
+            width: 100%;
+            padding: 40px;
+            border-radius: 80px;
+            object-fit: cover;
+        }
+    }
+    .address-field {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        h1 {
+            font-size: 50px;
+            font-weight: 700;
+            color: #0009B9;
+        }
+        h3 {
+            font-size: 15px;
+        }
+    }
+}
+
+//------------ Dashboard CSS Ends ------------ //
+
+
+//------------ LR Form CSS Starts ------------ //
+
+.main-content-block {
+    overflow: auto;
+    padding: 40px;
+    .title-block {
+        .left-block {
+            
+        }
+        .middle-block {
+            h1 {
+                font-size: 50px;
+            }
+            h2 {    
+                font-size: 20px;
+            }
+        }
+        .right-block {
+            text-align: end;
+        }
+    }
+}
+
+//------------ LR Form CSS Ends ------------ //
